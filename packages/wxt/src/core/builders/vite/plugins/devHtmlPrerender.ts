@@ -166,29 +166,31 @@ export function pointToDevServer(
         config.root,
         src.replace(alias, replacement),
       );
-    } else {
+    } else if (!src.startsWith('/')) {
       // Some file path relative to the HTML file
       resolvedAbsolutePath = resolve(dirname(id), src);
     }
 
-    // Apply the final file path
+    let resolvedSrc: string;
     if (resolvedAbsolutePath) {
       const relativePath = normalizePath(
         relative(config.root, resolvedAbsolutePath),
       );
-
-      if (relativePath.startsWith('.')) {
+      if (relativePath.startsWith('../')) {
         // Outside the config.root directory, serve the absolute path
         let path = normalizePath(resolvedAbsolutePath);
         // Add "/" to start of windows paths ("D:/some/path" -> "/D:/some/path")
         if (!path.startsWith('/')) path = '/' + path;
-        element.setAttribute(attr, `${server.origin}/@fs${path}`);
+        resolvedSrc = new URL(path, server.origin).href;
       } else {
         // Inside the project, use relative path
-        const url = new URL(relativePath, server.origin);
-        element.setAttribute(attr, url.href);
+        resolvedSrc = new URL(relativePath, server.origin).href;
       }
+    } else {
+      resolvedSrc = new URL(src, server.origin).href;
     }
+
+    element.setAttribute(attr, resolvedSrc);
   });
 }
 
