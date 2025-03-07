@@ -1,6 +1,7 @@
 packages:
-  - docs
-  - packages/*
+  - packages/browser
+  - packages/storage
+  - packages/wxt
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - dtrace-provider
