@@ -58,7 +58,6 @@
     "publish-browser-extension": "catalog:",
     "scule": "catalog:",
     "unimport": "catalog:",
-    "vite": "catalog:",
     "vite-node": "catalog:",
     "web-ext-run": "catalog:"
   },

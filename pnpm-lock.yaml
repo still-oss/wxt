@@ -219,9 +219,6 @@ catalogs:
     unimport:
       specifier: ^3.13.1 || ^4.0.0
       version: 3.13.1
-    vite:
-      specifier: ^5.0.0 || ^6.0.0
-      version: 6.2.0
     vite-node:
       specifier: ^2.1.4 || ^3.0.0
       version: 3.0.7
@@ -531,9 +528,6 @@ importers:
       unimport:
         specifier: 'catalog:'
         version: 3.13.1(rollup@4.34.9)(webpack-sources@3.2.3)
-      vite:
-        specifier: 'catalog:'
-        version: 6.2.0(@types/node@20.17.6)(jiti@2.4.2)(sass@1.80.7)(tsx@4.19.3)(yaml@2.7.0)
       vite-node:
         specifier: 'catalog:'
         version: 3.0.7(@types/node@20.17.6)(jiti@2.4.2)(sass@1.80.7)(tsx@4.19.3)(yaml@2.7.0)
