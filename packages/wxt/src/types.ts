@@ -1555,8 +1555,6 @@ export interface GeneratedPublicFile extends ResolvedBasePublicFile {
   contents: string;
 }
 
-export type WxtPlugin = () => void;
-
 export type WxtDirEntry = WxtDirTypeReferenceEntry | WxtDirFileEntry;
 
 /**
