@@ -420,4 +420,11 @@ describe('Detect Dev Changes', () => {
       expect(actual).toEqual(expected);
     });
   });
+
+  describe('Source file with error', () => {
+    it.todo(
+      'should return a full restart when the changed file had an error',
+      () => {},
+    );
+  });
 });
