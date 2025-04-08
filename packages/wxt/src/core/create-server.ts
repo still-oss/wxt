@@ -227,7 +227,12 @@ function createFileReloader(server: WxtDevServer, errorFiles?: string[]) {
       if (changes.type === 'no-change') return;
 
       if (changes.type === 'full-restart') {
-        wxt.logger.info(`${changes.cause} changed, restarting server...`);
+        const prettyCause = {
+          'config-file': 'Config file',
+          'source-file': 'Source file',
+          'wxt-module': 'WXT module',
+        }[changes.cause];
+        wxt.logger.info(`${prettyCause} changed, restarting server...`);
         server.restart();
         return;
       }
